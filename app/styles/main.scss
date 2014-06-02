@@ -1,6 +1,6 @@
 body {
-  height: 1000px;
-  padding-top: 60px;
+    height: 1000px;
+    padding-top: 60px;
 }
 
 #mainNav {
@@ -20,3 +20,44 @@ body {
     }
 }
 
+.contentWrapper {
+    position: relative;
+    left: 0;
+    top: 0;
+    opacity: 1;
+    z-index: 5;
+}
+
+.contentWrapper > div {
+    position: absolute;
+    width: 100%;
+   /* top: 0px;
+    left: 0;*/
+    /*mar*/
+    /*text-align: center;*/
+}
+
+.contentWrapper.ng-enter, .contentWrapper.ng-leave {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.contentWrapper.ng-enter {
+    opacity: 0;
+}
+
+.contentWrapper.ng-enter > div,
+.contentWrapper.ng-enter-active > div{
+    z-index: 100;
+}
+
+.contentWrapper.ng-leave,
+.contentWrapper.ng-enter-active {
+    opacity: 1;
+}
+
+.contentWrapper.ng-leave-active {
+    opacity: 0;
+}
