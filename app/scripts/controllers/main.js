@@ -1,19 +1,10 @@
 'use strict';
 
 angular.module('fasyaApp')
-  .controller('MainCtrl', ['$scope', '$location', function ($scope, $location) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    .controller('MainCtrl', ['$scope', '$location', function ($scope, $location) {
 
-    $scope.isHome = function(){
-        return $location.path() === '/';
-    };
-
-    $scope.isActive = function (viewLocation) { 
-        return viewLocation === $location.path();
-    };
-
-  }]);
+        $scope.isHome = function(){
+            return $location.path() === '/';
+        };
+        
+    }]);
