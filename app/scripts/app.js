@@ -13,11 +13,11 @@ angular
       })
       .when('/our-story', {
         templateUrl: 'views/our-story.html',
-        controller: 'MainCtrl'
+        controller: 'StoryCtrl'
       })
       .when('/gallery', {
         templateUrl: 'views/gallery.html',
-        controller: 'MainCtrl'
+        controller: 'GalleryCtrl'
       })
       .otherwise({
         redirectTo: '/'
