@@ -9,7 +9,7 @@ angular.module('fasyaApp')
     ];
 
     $scope.isHome = function(){
-        return $location.path() == '/';
+        return $location.path() === '/';
     };
 
     $scope.isActive = function (viewLocation) { 

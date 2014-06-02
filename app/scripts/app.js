@@ -2,7 +2,8 @@
 
 angular
   .module('fasyaApp', [
-    'ngRoute'
+    'ngRoute',
+    'ngAnimate'
   ])
   .config(function ($routeProvider) {
     $routeProvider
