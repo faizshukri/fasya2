@@ -1,5 +1,5 @@
 (function (u) {
-    u.fn.zoomflow = function (c) {
+    u.fn.fasyaGallery = function (c) {
         c = jQuery.extend({
             settings_slideshowTime: "5",
             settings_slideshow: "off",
@@ -162,7 +162,7 @@
             l = m[0];
             k = m[1];
             q = d.children(".items").eq(0).children().length;
-            3 > q && window.console && console.info("zoomflow:js - why less then 3 items");
+            3 > q && window.console && console.info("fasyaGallery:js - why less then 3 items");
             j = c.settings_mode;
             3 == q && "normal" == j && (j = "only-three");
             d.addClass("mode-" + j);
@@ -193,8 +193,8 @@
             return this
         })
     };
-    window.zoomflow_init = function (c, z) {
-        u(c).zoomflow(z)
+    window.fasyaGallery_init = function (c, z) {
+        u(c).fasyaGallery(z)
     }
 })(jQuery);
 
