@@ -15,17 +15,20 @@ angular.module('fasyaApp')
 
         baseAccounts.getList().then(function(images){
             $scope.gallery.images = images;
+            var promise = false;
+
             $timeout(function(){
                 $("#fasyaGallery").fasyaGallery({
                     settings_slideshowTime: 5,
                     design_padding: 150,
                     onChange: function(data){
-                        $timeout(function(){
+                        if(promise) $timeout.cancel(promise);
+                        promise = $timeout(function(){
                             $scope.gallery.disqus.shortname = 'fasya90';
                             $scope.gallery.disqus.title = 'Image No '+data.active;
                             $scope.gallery.disqus.url = $location.protocol() + "://" + $location.host().toString() + ":" + $location.port() + "/gallery/image" + data.active + "/";
                             $scope.gallery.disqus.id = 'image'+data.active;
-                        });
+                        }, 1500);
                     }
                 });
 
