@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('fasyaApp')
-    .controller('GalleryCtrl', ['$scope', '$timeout', 'Restangular', '$firebase', function ($scope, $timeout, Restangular, $firebase) {
+    .controller('GalleryCtrl', ['$scope', '$timeout', '$location', 'Restangular', '$firebase', function ($scope, $timeout, $location, Restangular, $firebase) {
 
         var firebaseUrl = "https://fasya.firebaseio.com/gallery";
         
@@ -23,7 +23,7 @@ angular.module('fasyaApp')
                         $timeout(function(){
                             $scope.gallery.disqus.shortname = 'fasya90';
                             $scope.gallery.disqus.title = 'Image No '+data.active;
-                            $scope.gallery.disqus.url = 'http://127.0.0.1:9000/gallery/image'+data.active+'/';
+                            $scope.gallery.disqus.url = $location.protocol() + "://" + $location.host().toString() + ":" + $location.port() + "/gallery/image" + data.active + "/";
                             $scope.gallery.disqus.id = 'image'+data.active;
                         });
                     }
