@@ -1,5 +1,11 @@
-<div><div class="container">
-    <div class="row">
-        hei. this is our gallery
+<div class="gallery">
+    <div class="con-maindemo" id="a-demo">
+
+        <div id="slides2" class="zoomflow skin-default loaded" style="height: 543.75px;">
+            <div class="items">
+                <div class="item-tobe" ng-repeat="image in images track by image.id" data-source="{{image.url}}"></div>
+            </div>
+        </div>
+
     </div>
-</div></div>
+</div>

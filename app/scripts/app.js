@@ -3,7 +3,9 @@
 angular
   .module('fasyaApp', [
     'ngRoute',
-    'ngAnimate'
+    'ngAnimate',
+    'restangular',
+    'firebase'
   ])
   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
