@@ -11,8 +11,14 @@
             design_maxwidth: "1400",
             design_padding: "100",
             design_enableShadows: "on",
-            settings_makeFunctional: 1
+            settings_makeFunctional: 1,
+            onChange: function(){}
         }, c);
+
+        var returnobject = {
+            active: null
+        };
+
         return this.each(function () {
             function z() {
                 v++;
@@ -30,10 +36,10 @@
                         b = h.children().eq(a).children("canvas").eq(0)[0].getContext("2d"),
                         c = h.children().eq(a).children("canvas").width(),
                         a = h.children().eq(a).children("canvas").height(),
-                        d = b.createLinearGradient(0, 0, 0, a);
+                        d = b.createLinearGradient(0, 0, 0, a+10);
                     b.clearRect(0, 0, c, a);
-                    d.addColorStop(0, "rgba(0,0,0,0.12)");
-                    d.addColorStop(0.07, "rgba(0,0,0,0)");
+                    d.addColorStop(0, "rgba(0,0,0,0.2)");
+                    d.addColorStop(0.1, "rgba(0,0,0,0)");
                     b.fillStyle = d;
                     b.fillRect(0, 0, c, a)
                 }
@@ -109,6 +115,8 @@
                 y = f.eq(s);
                 "only-two" != j && w.addClass("prevItem");
                 x.addClass("currItem");
+                returnobject.active = x.find('.imageId').attr('id');
+                c.onChange.call(this, returnobject);
                 y.addClass("nextItem");
                 J();
 
