@@ -1,19 +1,23 @@
 <div class="gallery">
-    <div class="con-maindemo" id="a-demo">
-
-        <div id="fasyaGallery" class="fasyaGallery skin-default loaded" style="height: 543.75px;">
-            <div class="items">
-                <div class="item-tobe" ng-repeat="image in gallery.images track by image.id" data-source="{{image.url}}">
-                    <div style="display: block; opacity: 1;" class="captionCon" ng-if="image.caption">
-                        <div style="left: 50px; top: 50px; text-align: left; color: #e5dc77;" data-delay="" data-effect="slideright fade" class="caption style_bigtitle">CAPTION
-                        </div>
-                        <div style="left: 50px; top: 80px; width:250px; text-align:left;" data-delay="secs0-5" data-effect="slideleft fade" class="caption style_bigtitle">{{image.caption}}
-                        </div>
-                        
+    <div id="fasyaGallery" class="fasyaGallery jumbotron skin-default loaded" style="height: 543.75px;">
+        <div class="items">
+            <div class="item-tobe" ng-repeat="image in gallery.images track by image.id" data-source="{{image.url}}">
+                <div class="imageId" id="{{image.id}}"></div>
+                <div style="display: block; opacity: 1;" class="captionCon" ng-if="image.caption">
+                    <div style="left: 50px; top: 50px; text-align: left; color: #e5dc77;" data-delay="" data-effect="slideright fade" class="caption style_bigtitle">CAPTION
+                    </div>
+                    <div style="left: 50px; top: 80px; width:250px; text-align:left;" data-delay="secs0-5" data-effect="slideleft fade" class="caption style_bigtitle">{{image.caption}}
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-sm-12">
+            <comments class="comments" disqus-shortname="{{gallery.disqus.shortname}}" disqus-identifier="{{gallery.disqus.id}}" disqus-title="{{gallery.disqus.title}}" disqus-url="{{gallery.disqus.url}}"></comments>
+            </div>
+        </div>
     </div>
 </div>
+

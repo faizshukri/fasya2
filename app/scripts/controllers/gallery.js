@@ -7,17 +7,26 @@ angular.module('fasyaApp')
         
         var baseAccounts = Restangular.allUrl('firebase', firebaseUrl+'.json');
 
-        $scope.gallery = {};
+        $scope.gallery = {
+            images: null,
+            navigated: false,
+            disqus: {}
+        };
 
         baseAccounts.getList().then(function(images){
             $scope.gallery.images = images;
-
-            $scope.gallery.navigated = false;
-
             $timeout(function(){
                 $("#fasyaGallery").fasyaGallery({
                     settings_slideshowTime: 5,
-                    design_padding: 150
+                    design_padding: 150,
+                    onChange: function(data){
+                        $timeout(function(){
+                            $scope.gallery.disqus.shortname = 'fasya90';
+                            $scope.gallery.disqus.title = 'Image No '+data.active;
+                            $scope.gallery.disqus.url = 'http://127.0.0.1:9000/gallery/image'+data.active+'/';
+                            $scope.gallery.disqus.id = 'image'+data.active;
+                        });
+                    }
                 });
 
                 $('body').bind('keydown',function(e){
