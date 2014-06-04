@@ -81,7 +81,6 @@
                 0 < a && (b = a);
                 b == q && (b = 0);
                 "only-three" != j && f.eq(nextnextNr).addClass("nextnextItem non-animate");
-                console.log(b);
                 setTimeout(function () {
                     E(b)
                 }, 10)
@@ -89,7 +88,6 @@
 
             function H() {
                 var a = n - 1; - 1 == a && (a = q - 1);
-                console.log(a);
                 E(a)
             }
 
