@@ -229,7 +229,7 @@ module.exports = function (grunt) {
     // The following *-min tasks produce minified files in the dist folder
     cssmin: {
       options: {
-        root: '<%= yeoman.app %>'
+        // root: '<%= yeoman.app %>'
       }
     },
 
@@ -374,6 +374,27 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.registerTask("copyimg", function() {
+    // read all subdirectories from your modules folder
+    var yeoman = grunt.config.get('yeoman') || {};
+    grunt.file.expand( yeoman.app+"/vendors/**/{img,image,images}").forEach(function (dir) {
+
+      // get the current concat config
+      var copy = grunt.config.get('copy') || {};
+
+      // set the config for this modulename-directory
+      copy['dist']['files'].push({
+        expand: true,
+        cwd: dir,
+        src: ['*'],
+        dest: yeoman.dist+'/styles/'+dir.split('/').pop()
+      });
+
+      // save the new concat config
+      grunt.config.set('copy', copy);
+    });
+  });
+
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
@@ -411,6 +432,7 @@ module.exports = function (grunt) {
     'autoprefixer',
     'concat',
     'ngmin',
+    'copyimg',
     'copy:dist',
     'cdnify',
     'cssmin',
