@@ -13,5 +13,25 @@
                 cursor: pointer !important;
             }
         }
+
+        @media (max-width: 768px) { 
+            .item.prevItem,
+            .item.nextItem {
+                display: none !important;
+            }
+
+            .item.currItem {
+                width: 100% !important;
+                height: 100% !important;
+                margin-left: 0% !important;
+                margin-top: 0% !important;
+                top: 0px;
+                left: 0px;
+
+                .the-bg {
+                    border-radius: 0px;
+                }
+            }
+        }
     }
 }
